@@ -1,0 +1,33 @@
+dnf install nginx -y 
+
+ansible -i inventory.txt all -e ansible_user=ec2-user -e ansible_password=DevOps321 -m dnf -a 
+
+Start & Enable Nginx service
+
+systemctl enable nginx 
+ansible -i inventory.txt all -e ansible_user=ec2-user -e ansible_password=DevOps321 -m systemd -a 
+systemctl start nginx 
+
+INFO
+Try to access the service once over the browser and ensure you get some default content.
+
+Remove the default content that web server is serving.
+
+rm -rf /usr/share/nginx/html/* 
+
+Download the frontend content
+
+curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip 
+
+
+Extract the frontend content.
+
+cd /usr/share/nginx/html 
+unzip /tmp/frontend.zip
+
+INFO
+Try to access the nginx service once more over the browser and ensure you get expense content.
+
+Create Nginx Reverse Proxy Configuration.
+
+vim /etc/nginx/default.d/expense.conf 

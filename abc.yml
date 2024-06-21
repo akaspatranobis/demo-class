@@ -1,0 +1,11 @@
+accountnumber: 1230
+
+1000:  # dictionary type of values
+ 100: 5
+ 500: 1
+
+1000:  # list type of giving values
+  - 500
+  - 200
+  - 200
+  - 100 
