@@ -1,0 +1,21 @@
+- name: Vars
+  hosts: localhost
+  become: yes
+  vars:
+    NAME: Asha
+  tasks:
+   - name: Print Variable
+     ansible.builtin.debug:
+      msg: MY NAME - {{ NAME }}
+
+   - name: Print Variable-1
+     ansible.builtin.debug:
+      msg: MY NAME - {{ NAME }}
+
+   - name: Print Variable-2
+     ansible.builtin.debug:
+      msg: MY NAME - {{ NAME }}
+
+   - name: Print Variable-3
+     ansible.builtin.debug:
+      msg: MY NAME - {{ NAME }}         
